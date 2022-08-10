@@ -32,3 +32,5 @@ export const sortComparator = (a, b, cb) => {
 }
 
 export const cardItemExtractor = ({ title, description, urlToImage }) => ({ title, description, image: urlToImage })
+
+export const optionsExtractor = ({ code, name }) => ({ text: name, value: code })

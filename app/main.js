@@ -1,7 +1,7 @@
 import App from './app.js'
 import UI from './ui.js'
 import { uiSelectors } from './selectors.js'
-import { cardItemExtractor, isEmpty } from '../utils/helper.js'
+import { cardItemExtractor, isEmpty, optionsExtractor } from '../utils/helper.js'
 
 function initApp () {
   let app, ui
@@ -19,7 +19,7 @@ function initApp () {
 async function loadContent (app, ui) {
   const { filterSelect, newsSection } = uiSelectors
   await app.loadNews()
-  ui.createOptions(app.countryList, filterSelect, ({ code, name }) => ({ text: name, value: code }))
+  ui.createOptions(app.countryList, filterSelect, optionsExtractor)
   ui.createCard(app.searchResults, newsSection, cardItemExtractor)
 }
 

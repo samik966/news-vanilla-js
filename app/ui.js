@@ -47,7 +47,7 @@ export default class UI {
       const { title, image } = cb(content)
       const obj = {
         '%title%': title,
-        '%image%': image
+        '%image%': image ?? 'https://via.placeholder.com/250'
       }
       const card = cardTemplate.replace(/%title%|%image%/gi, s => obj[s])
       this._(parent).innerHTML += card

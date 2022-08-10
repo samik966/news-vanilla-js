@@ -21,9 +21,8 @@ export default class App {
   async handleSearch (e, cb) {
     e.preventDefault()
     const query = e.target.search.value
-    const searchUrl = this.#searchUrl + query + '&pageSize=4'
+    const searchUrl = this.#searchUrl + query + '&pageSize=12'
     const { articles } = await useFetch(searchUrl)
-    console.log(articles)
     this.searchResults = articles
     cb(this.searchResults)
   }
